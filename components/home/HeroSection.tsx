@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -36,70 +37,72 @@ export function HeroSection() {
 
   return (
     <section
-      aria-label="Hero — Meet Your Sweeter Side"
-      className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden bg-charcoal"
+      aria-label="Swiss Arabian Incense 1 — Discover the Art of Incense"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-charcoal px-4"
     >
-      {/* Background Image with priority loading */}
+      {/* Swiss Arabian product background */}
       <div className="absolute inset-0 select-none">
         <Image
-          src="/images/pink-cloud/bottle-splash.jpg"
-          alt="Sugar Mallow Pink Cloud Eau de Parfum bottle splashing in strawberry mist"
+          src="/images/swiss-arabian-incense-01/incense 1.jpg"
+          alt="Swiss Arabian Incense 1 fragrance"
           fill
           priority
           sizes="100vw"
           className="object-cover object-center"
         />
-        {/* Blush & charcoal gradient overlay for readability and luxury tone */}
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/30 to-berry/40" />
-        <div className="absolute inset-0 bg-black/20" />
+
+        {/* Dark luxury overlay for readable text */}
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/40 to-charcoal/70" />
+        <div className="absolute inset-0 bg-black/15" />
       </div>
 
-      {/* Hero Content (Centered, max-w-3xl) */}
-      <div className="relative z-10 w-full max-w-3xl mx-auto py-24 text-center">
+      {/* Hero content */}
+      <div className="relative z-10 mx-auto w-full max-w-3xl py-24 text-center">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="flex flex-col items-center"
         >
-          {/* Small Brand Label */}
+          {/* Brand label */}
           <motion.span
             variants={childVariants}
-            className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gold font-body font-semibold mb-4 drop-shadow-xs"
+            className="mb-4 font-body text-xs font-semibold uppercase tracking-[0.3em] text-gold drop-shadow-xs sm:text-sm"
           >
-            ATRALIA
+            SWISS ARABIAN
           </motion.span>
 
-          {/* Main Headline */}
+          {/* Main heading */}
           <motion.h1
             variants={childVariants}
-            className="font-display text-display-md sm:text-display-lg md:text-display-xl text-white font-normal leading-[1.08] tracking-tight mb-5 whitespace-pre-line drop-shadow-md text-balance"
+            className="mb-5 whitespace-pre-line font-display text-display-md font-normal leading-[1.08] tracking-tight text-white drop-shadow-md text-balance sm:text-display-lg md:text-display-xl"
           >
-            Meet Your{'\n'}Sweeter Side
+            Discover the{'\n'}Art of Incense
           </motion.h1>
 
-          {/* Subline */}
+          {/* Product subtitle */}
           <motion.p
             variants={childVariants}
-            className="font-body text-base sm:text-lg md:text-xl text-white/90 font-light tracking-wide mb-8 max-w-xl mx-auto drop-shadow-xs"
+            className="mx-auto mb-8 max-w-xl font-body text-base font-light tracking-wide text-white/90 drop-shadow-xs sm:text-lg md:text-xl"
           >
-            Sugar Mallow — Pink Cloud Eau de Parfum
+            Swiss Arabian Incense 1 — 50ml
           </motion.p>
 
-          {/* Two CTA Buttons */}
+          {/* CTA buttons */}
           <motion.div
             variants={childVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md sm:max-w-none pt-2"
+            className="flex w-full max-w-md flex-col items-center justify-center gap-4 pt-2 sm:max-w-none sm:flex-row"
           >
             <Link
-              href="#pink-cloud-experience"
-              className="w-full sm:w-auto px-8 py-3 text-sm uppercase tracking-wider font-medium text-center bg-white text-charcoal hover:bg-gold hover:text-white transition-all duration-300 rounded-xs shadow-sm hover:shadow-md"
+              href="#fragrance-scroll-experience"
+              className="w-full rounded-xs bg-white px-8 py-3 text-center text-sm font-medium uppercase tracking-wider text-charcoal shadow-sm transition-all duration-300 hover:bg-gold hover:text-white hover:shadow-md sm:w-auto"
             >
-              Explore Pink Cloud
+              Explore Incense 1
             </Link>
+
             <Link
               href="/perfumes"
-              className="w-full sm:w-auto px-8 py-3 text-sm uppercase tracking-wider font-medium text-center border border-white text-white hover:bg-white hover:text-charcoal transition-all duration-300 rounded-xs shadow-sm"
+              className="w-full rounded-xs border border-white px-8 py-3 text-center text-sm font-medium uppercase tracking-wider text-white shadow-sm transition-all duration-300 hover:bg-white hover:text-charcoal sm:w-auto"
             >
               Shop Perfumes
             </Link>
@@ -107,21 +110,22 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Animated Scroll Indicator at bottom */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-10"
+        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center"
       >
         <Link
-          href="#pink-cloud-experience"
-          aria-label="Scroll down to explore Pink Cloud experience"
-          className="flex flex-col items-center gap-1 group text-white/80 hover:text-white transition-colors duration-200"
+          href="#fragrance-scroll-experience"
+          aria-label="Scroll down to explore Swiss Arabian Incense 1"
+          className="group flex flex-col items-center gap-1 text-white/80 transition-colors duration-200 hover:text-white"
         >
-          <span className="text-[10px] uppercase tracking-[0.25em] text-white/70 group-hover:text-gold transition-colors duration-200">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-white/70 transition-colors duration-200 group-hover:text-gold">
             Scroll
           </span>
+
           <motion.div
             animate={
               shouldReduceMotion
@@ -136,7 +140,7 @@ export function HeroSection() {
               ease: 'easeInOut',
             }}
           >
-            <ChevronDown className="w-5 h-5 text-white/80 group-hover:text-gold transition-colors duration-200" />
+            <ChevronDown className="h-5 w-5 text-white/80 transition-colors duration-200 group-hover:text-gold" />
           </motion.div>
         </Link>
       </motion.div>

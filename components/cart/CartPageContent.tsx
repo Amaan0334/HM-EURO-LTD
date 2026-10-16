@@ -148,7 +148,7 @@ export function CartPageContent() {
                         </p>
                         {quantity > 1 && (
                           <p className="text-xs text-muted">
-                            {formatPrice(product.priceGBP)} each
+                           {formatPrice(Math.round(product.priceGBP * 100))}
                           </p>
                         )}
                       </div>

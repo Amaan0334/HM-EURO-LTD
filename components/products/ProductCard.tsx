@@ -25,7 +25,7 @@ function formatConcentration(concentration: Product['concentration']): string {
   }
 }
 
-export function ProductCard({ product, className, isLarge: _isLarge = false }: ProductCardProps) {
+export function ProductCard({ product, className }: ProductCardProps) {
   const primaryImage = product.images[0];
   const concentrationLabel = formatConcentration(product.concentration);
 
@@ -89,7 +89,11 @@ export function ProductCard({ product, className, isLarge: _isLarge = false }: P
           {/* Price */}
           <div className="mt-2 pt-2 border-t border-blush/30 flex items-center justify-between">
             <span className="text-body-md font-medium text-charcoal">
-              {formatPrice(product.priceGBP)}
+            {formatPrice(
+  Math.round(product.priceGBP > 100
+    ? product.priceGBP
+    : product.priceGBP * 100)
+)}
             </span>
             {product.stockStatus === 'out-of-stock' && (
               <span className="text-caption text-strawberry uppercase tracking-wider font-medium">

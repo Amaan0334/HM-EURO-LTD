@@ -1,3 +1,4 @@
+
 import type { Product } from '@/types/product';
 
 export const products: Product[] = [
@@ -122,7 +123,7 @@ export const products: Product[] = [
         theme: 'light',
       },
     ],
-    featured: true,
+    featured: false,
     metadata: {
       title: 'Sugar Mallow Pink Cloud Eau de Parfum 100ml | Atralia',
       description:
@@ -300,6 +301,139 @@ export const products: Product[] = [
         'Shop Afnan Supremacy Not Only Intense Extrait De Parfum Spray for Men, 100ml. A powerful, refined masculine fragrance. £41.50.',
     },
   },
+  {
+    id: 'afnan-lynked-freedom-100ml',
+    slug: 'afnan-lynked-freedom',
+    name: 'Lynked Freedom',
+    brand: 'Afnan',
+    category: 'perfumes',
+    subtitle: 'Eau de Parfum 100ml',
+    tagline: 'Discover Your Freedom',
+    description:
+      'Discover Afnan Lynked Freedom, a distinctive fragrance presented in an elegant bottle. Explore this contemporary scent at HM EURO LTD.',
+    priceGBP: 46.91,
+    images: [
+      {
+        src: '/images/afnan lynked freedom/AFNAN LYNKED FREEDOM.jpg',
+        alt: 'Afnan Lynked Freedom perfume bottle',
+        width: 1024,
+        height: 1024,
+      },
+    ],
+    concentration: 'EDP',
+    size: '100ml',
+    stockStatus: 'in-stock',
+    target: 'unisex',
+    featured: true,
+    metadata: {
+      title: 'Afnan Lynked Freedom Eau de Parfum 100ml',
+      description:
+        'Discover Afnan Lynked Freedom Eau de Parfum 100ml at HM EURO LTD. £46.91.',
+    },
+  },
+  {
+    id: 'swiss-arabian-incense-01-50ml',
+    slug: 'swiss-arabian-incense-01',
+    name: 'Incense 1',
+    brand: 'Swiss Arabian',
+    collection: 'swiss-arabian-incense-01',
+    category: 'perfumes',
+    subtitle: 'Swiss Arabian Incense 1 · 50ml',
+    tagline: 'A Distinctive Fragrance Experience',
+    description:
+      'Discover Swiss Arabian Incense 01, presented in a 50ml bottle. Explore the fragrance through our curated product imagery.',
+    priceGBP: 59.49,
+    images: [
+      {
+        src: '/images/swiss-arabian-incense-01/incense 1.jpg',
+        alt: 'Swiss Arabian Incense 1 fragrance bottle',
+        width: 1024,
+        height: 1024,
+      },
+      {
+        src: '/images/swiss-arabian-incense-01/incense 2.jpg',
+        alt: 'Swiss Arabian Incense 1 product view',
+        width: 1024,
+        height: 1024,
+      },
+      {
+        src: '/images/swiss-arabian-incense-01/incense 3.jpg',
+        alt: 'Swiss Arabian Incense 1 fragrance detail',
+        width: 1024,
+        height: 1024,
+      },
+      {
+        src: '/images/swiss-arabian-incense-01/incense 4.jpg',
+        alt: 'Swiss Arabian Incense 1 additional product view',
+        width: 1024,
+        height: 1024,
+      },
+      {
+        src: '/images/swiss-arabian-incense-01/incense 5.jpg',
+        alt: 'Swiss Arabian Incense 1 presentation',
+        width: 1024,
+        height: 1024,
+      },
+      {
+        src: '/images/swiss-arabian-incense-01/incense 6.jpg',
+        alt: 'Swiss Arabian Incense 1 final product view',
+        width: 1024,
+        height: 1024,
+      },
+    ],
+    concentration: 'EDP',
+    size: '50ml',
+    stockStatus: 'in-stock',
+    target: 'unisex',
+    campaignType: 'swiss-arabian-incense-01',
+    campaignSlides: [
+      {
+        id: 1,
+        title: 'Discover Incense 1',
+        subtitle: 'Swiss Arabian · 50ml',
+        description: 'A distinctive fragrance experience',
+        image: {
+          src: '/images/swiss-arabian-incense-01/incense 1.jpg',
+          alt: 'Swiss Arabian Incense 1 hero product image',
+          width: 1024,
+          height: 1024,
+        },
+        theme: 'dark',
+      },
+      {
+        id: 2,
+        title: 'The Fragrance, Up Close',
+        subtitle: 'Explore the Details',
+        description: 'Discover the presentation of Swiss Arabian Incense 1.',
+        image: {
+          src: '/images/swiss-arabian-incense-01/incense 3.jpg',
+          alt: 'Close-up view of Swiss Arabian Incense 1',
+          width: 1024,
+          height: 1024,
+        },
+        theme: 'dark',
+      },
+      {
+        id: 3,
+        title: 'Explore Incense 1',
+        subtitle: 'Swiss Arabian · 50ml',
+        description: 'Discover the product and explore the collection.',
+        image: {
+          src: '/images/swiss-arabian-incense-01/incense 6.jpg',
+          alt: 'Swiss Arabian Incense 1 product presentation',
+          width: 1024,
+          height: 1024,
+        },
+        theme: 'dark',
+      },
+    ],
+    featured: true,
+    metadata: {
+      title: 'Swiss Arabian Incense 1 50ml',
+      description:
+        'Discover Swiss Arabian Incense 1 50ml at HM EURO LTD.',
+    },
+  },
 ];
 
 // --- Query functions ---
@@ -332,33 +466,46 @@ export function getRelatedProducts(currentSlug: string, limit = 4): Product[] {
     .filter((p) => p.slug !== currentSlug)
     .sort((a, b) => {
       // Prioritize same brand, then same target audience
-      const aScore = (a.brand === current.brand ? 2 : 0) + (a.target === current.target ? 1 : 0);
-      const bScore = (b.brand === current.brand ? 2 : 0) + (b.target === current.target ? 1 : 0);
+      const aScore =
+        (a.brand === current.brand ? 2 : 0) +
+        (a.target === current.target ? 1 : 0);
+      const bScore =
+        (b.brand === current.brand ? 2 : 0) +
+        (b.target === current.target ? 1 : 0);
+
       return bScore - aScore;
     })
     .slice(0, limit);
 }
 
-export function filterProducts(options: import('@/types/product').ProductFilterOptions): Product[] {
+export function filterProducts(
+  options: import('@/types/product').ProductFilterOptions
+): Product[] {
   let filtered = [...products];
 
   if (options.brand) {
     filtered = filtered.filter((p) => p.brand === options.brand);
   }
+
   if (options.target) {
     filtered = filtered.filter((p) => p.target === options.target);
   }
+
   if (options.minPrice !== undefined) {
     filtered = filtered.filter((p) => p.priceGBP >= options.minPrice!);
   }
+
   if (options.maxPrice !== undefined) {
     filtered = filtered.filter((p) => p.priceGBP <= options.maxPrice!);
   }
+
   if (options.collection) {
     filtered = filtered.filter((p) => p.collection === options.collection);
   }
+
   if (options.search) {
     const q = options.search.toLowerCase();
+
     filtered = filtered.filter(
       (p) =>
         p.name.toLowerCase().includes(q) ||

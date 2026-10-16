@@ -12,13 +12,18 @@ export interface MobileNavigationProps {
   onClose: () => void;
 }
 
+
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/perfumes', label: 'Shop Perfumes' },
-  { href: '/collections/pink-cloud', label: 'Pink Cloud' },
+  {
+    href: '/products/swiss-arabian-incense-01',
+    label: 'Swiss Arabian',
+  },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
+
 
 export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
   const pathname = usePathname();

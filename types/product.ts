@@ -24,7 +24,11 @@ export interface FragranceNotes {
 export type Concentration = 'EDP' | 'Extrait' | 'EDT' | 'Parfum';
 export type StockStatus = 'in-stock' | 'low-stock' | 'out-of-stock' | 'pre-order';
 export type TargetAudience = 'men' | 'women' | 'unisex';
-export type Brand = 'Atralia' | 'Khadlaj' | 'Afnan';
+export type Brand =
+  | 'Atralia'
+  | 'Khadlaj'
+  | 'Afnan'
+  | 'Swiss Arabian';
 
 export interface ProductVariant {
   id: string;
@@ -39,7 +43,7 @@ export interface Product {
   slug: string;
   name: string;
   brand: Brand;
-  collection?: 'pink-cloud';
+  collection?: 'pink-cloud' | 'swiss-arabian-incense-01';
   category: 'perfumes';
   subtitle?: string;
   tagline?: string;
@@ -55,7 +59,7 @@ export interface Product {
   fragranceFamily?: string;
   fragranceNotes?: FragranceNotes;
   features?: string[];
-  campaignType?: 'pink-cloud' | null;
+  campaignType?: 'pink-cloud' | 'swiss-arabian-incense-01' | null;
   campaignSlides?: CampaignSlide[];
   featured: boolean;
   metadata: {

@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { HeroSection } from '@/components/home/HeroSection';
 import PinkCloudScrollExperience from '@/components/home/PinkCloudScrollExperience';
@@ -8,25 +9,26 @@ import { NewsletterSection } from '@/components/home/NewsletterSection';
 import { getProductBySlug } from '@/lib/products';
 
 export const metadata: Metadata = {
-  title: 'HM EURO LTD | Luxury Fragrances & Signature Perfumes',
+  title: 'HM EURO LTD | Swiss Arabian Incense 01 & Luxury Fragrances',
   description:
-    'Discover curated luxury perfumes from prestigious fragrance houses including Atralia, Khadlaj, and Afnan. Explore our signature Sugar Mallow Pink Cloud Eau de Parfum.',
+    'Discover Swiss Arabian Incense 01 and a curated selection of luxury fragrances at HM EURO LTD.',
 };
 
 export default function HomePage() {
-  const pinkCloud = getProductBySlug('sugar-mallow-pink-cloud');
+  const incense01 = getProductBySlug('swiss-arabian-incense-01');
 
   return (
     <div className="min-h-screen bg-white">
       <HeroSection />
 
-      {pinkCloud?.campaignSlides && pinkCloud.campaignSlides.length > 0 && (
-        <PinkCloudScrollExperience
-          slides={pinkCloud.campaignSlides}
-          productSlug={pinkCloud.slug}
-          productPrice={pinkCloud.priceGBP}
-        />
-      )}
+      {incense01?.campaignSlides &&
+        incense01.campaignSlides.length > 0 && (
+          <PinkCloudScrollExperience
+            slides={incense01.campaignSlides}
+            productSlug={incense01.slug}
+            productPrice={incense01.priceGBP}
+          />
+        )}
 
       <FeaturedCollection />
       <BrandStory />

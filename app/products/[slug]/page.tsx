@@ -165,7 +165,7 @@ export default async function ProductDetailPage({ params }: Props) {
             {/* Price & Stock Status Badge */}
             <div className="mt-4 flex items-center justify-between gap-4">
               <span className="text-heading-lg font-medium text-charcoal font-body">
-                {formatPrice(product.priceGBP)}
+                {formatPrice(Math.round(product.priceGBP * 100))}
               </span>
 
               {/* Stock Status Badge */}

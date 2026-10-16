@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { getFeaturedProducts } from '@/lib/products';
 import { ProductCard } from '@/components/products/ProductCard';
@@ -16,33 +17,37 @@ export function FeaturedCollection() {
           <span className="text-xs uppercase tracking-[0.3em] text-gold font-body font-semibold block mb-2">
             Curated Selection
           </span>
+
           <h2 className="font-display text-display-sm text-charcoal mb-3">
             Curated Collection
           </h2>
+
           <p className="text-muted text-body-md font-body">
             Discover our handpicked selection of premium fragrances
           </p>
         </div>
 
-        {/* Editorial Grid: Pink Cloud gets 2 cols on desktop, others standard */}
+        {/* Afnan Lynked Freedom Featured Card */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {featuredProducts.map((product) => {
-            const isPinkCloud =
-              product.collection === 'pink-cloud' ||
-              product.slug === 'sugar-mallow-pink-cloud';
+            const isAfnanLynkedFreedom =
+              product.slug === 'afnan-lynked-freedom';
 
             return (
               <ProductCard
                 key={product.id}
                 product={product}
-                isLarge={isPinkCloud}
-                className={isPinkCloud ? 'md:col-span-2 lg:col-span-2' : 'col-span-1'}
+                className={
+                  isAfnanLynkedFreedom
+                    ? 'md:col-span-2 lg:col-span-2'
+                    : 'col-span-1'
+                }
               />
             );
           })}
         </div>
 
-        {/* Optional Secondary Navigation to Full Catalog */}
+        {/* Full Catalog Navigation */}
         <div className="mt-12 md:mt-16 text-center">
           <Link
             href="/perfumes"
